@@ -1,12 +1,11 @@
-import { useState } from 'react'
 import './App.css'
-import Todos from './Todos';
+import Index from './components/listview/Index';
 
 function App() {
 
   return (
     <>
-      <Todos/>
+    <Index/>
     </>
   )
 }
