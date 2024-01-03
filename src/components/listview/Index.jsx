@@ -1,5 +1,7 @@
 import PropTypes from 'prop-types';
-const Index = ({todo, toggleSelect, toggleComplete}) => {
+
+// list item component
+const Todo = ({todo, toggleSelect, toggleComplete}) => {
     return (
         <div className="join join-vertical">
             <input type="checkbox" id={todo.id} onChange={()=>toggleSelect(todo.id)}
@@ -15,9 +17,32 @@ const Index = ({todo, toggleSelect, toggleComplete}) => {
     );
 };
 //adding prop types
-Index.propTypes = {
+Todo.propTypes = {
     todo: PropTypes.object.isRequired,
     toggleComplete: PropTypes.func.isRequired,
     toggleSelect: PropTypes.func.isRequired
 }
-export default Index;
+
+const ListView = ({todos, toggleSelect, toggleComplete}) => {
+    return (
+        <div className="join join-vertical">
+            {
+                todos.map(todo => {
+                    <Todo
+                    key={todo.id}
+                    todo = {todo} 
+                    toggleSelect={toggleSelect}
+                    toggleComplete={toggleComplete}
+                    />
+                })
+            }
+        </div>
+    );
+};
+//adding prop types
+ListView.propTypes = {
+    todos: PropTypes.object.isRequired,
+    toggleComplete: PropTypes.func.isRequired,
+    toggleSelect: PropTypes.func.isRequired
+}
+export default ListView;
