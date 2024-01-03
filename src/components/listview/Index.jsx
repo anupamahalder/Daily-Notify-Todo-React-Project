@@ -23,25 +23,33 @@ Todo.propTypes = {
     toggleSelect: PropTypes.func.isRequired
 }
 
-const ListView = ({todos, toggleSelect, toggleComplete}) => {
+const ListView = ({todos=[], toggleSelect, toggleComplete}) => {
+    if (todos === undefined) {
+        console.error("Warning: todos prop is undefined in ListView.");
+        // You can throw an error if needed
+        // throw new Error("todos prop is required in ListView.");
+    }
+    
+    // console.log(todos);
+    console.log(todos);
     return (
         <div className="join join-vertical">
             {
-                todos.map(todo => {
+                todos.map(todo => (
                     <Todo
                     key={todo.id}
                     todo = {todo} 
                     toggleSelect={toggleSelect}
                     toggleComplete={toggleComplete}
                     />
-                })
+                ))
             }
         </div>
     );
 };
 //adding prop types
 ListView.propTypes = {
-    todos: PropTypes.object.isRequired,
+    todos: PropTypes.array.isRequired,
     toggleComplete: PropTypes.func.isRequired,
     toggleSelect: PropTypes.func.isRequired
 }

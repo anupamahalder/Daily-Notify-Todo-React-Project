@@ -1,5 +1,5 @@
 import './App.css'
-import Index from './components/listview/Index';
+import Index from './components/todos/Index';
 
 function App() {
 
