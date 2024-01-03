@@ -1,8 +1,8 @@
 
 const Todos = () => {
     return (
-        <div>
-            
+        <div className="bg-blue-400">
+            <h1>Hello</h1>
         </div>
     );
 };
